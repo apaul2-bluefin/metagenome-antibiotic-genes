@@ -1,2 +1,2 @@
 # metagenome-antibiotic-genes
-Marine biofilms were sampled from UUVs. Here, those metagenomes are analyzed for antibiotic producing genes using bioinformatic tool - ABRricate. 
+Marine biofilms sampled from UUVs were analyzed for antagonistic traits. The presence of antibiotic-producing genes and virulence factors was identified using the bioinformatics tool ABRicate.
