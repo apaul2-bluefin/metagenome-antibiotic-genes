@@ -1,2 +1,2 @@
 # metagenome-antibiotic-genes
-Marine biofilms sampled from UUVs were analyzed for antagonistic traits. The presence of antibiotic-producing genes and virulence factors was identified using the bioinformatics tool ABRicate.
+The metagenomes from marine biofilms sampled from UUVs were analyzed for antagonistic traits. The presence of antibiotic-producing genes and virulence factors was identified using the bioinformatics tool ABRicate. Input files for ABRicate should be FASTA-formatted bacterial genome or protein sequence files. Prokka can be used to generate .fna and other FASTA output files for downstream analysis & for ABRicate input files. 
