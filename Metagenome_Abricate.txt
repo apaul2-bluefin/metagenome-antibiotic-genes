@@ -1,0 +1,28 @@
+---------------------------
+7. Abricate - assessing virulence genes using 7 databases (750 GB, 50 or 32 CPU); GitHub : https://github.com/tseemann/abricate/blob/master/README.md 
+#Abricate needs nucleotide sequences and not protein sequences. Must have prokka results for this tool. Files such as .fna is used and not .faa
+ 
+#load anaconda3 from CUGBF and activate the conda environment; make sure to be in interactive mode. CPU=50 and mem=750 GB 
+module avail anaconda
+module load anaconda3/2023.1
+/project/cugbf/software/gbf/anaconda3/2023.1/conda_activate.sh
+
+#install abricate with conda env and activate the env; check that the env is activated 
+conda create -n abricate_env -c bioconda -c conda-forge abricate
+source activate abricate_env
+conda env list #you should see your env for abricate listed ex. /home/apaul3/.conda/envs/abricate_env (mine is apaul3)
+
+# make a directory for abricate and cp your .fna files in it. run abricate for .fna files. You can specify output as a tsv file
+mkdir abricate_results
+cd abricate_results #this must have the .fna files in it
+abricate *.fna > results.tsv #this is the normal command for just an assessment of virulent genes; uses one random data base   
+
+#run this command to use all 7 databases ( I used this)
+cd abricate_results
+for db in $(abricate --list | tail -n +2 | cut -f1); do
+  abricate --db "$db" *.fna 
+done > all_abricate_results.tsv 
+
+#run this command to use only A specific database of interest; in this case vfdb
+abricate --db vfdb *.fna > vfdb_results.tsv
+------------------------------------
